@@ -1,7 +1,8 @@
 create database SV;
 create table users(
     user varchar(20) primary key,
-    password varchar(20)
+    password varchar(20),
+    name varchar(20)
 );
 create table contacts(
     user varchar(20),

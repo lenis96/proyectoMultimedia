@@ -1,10 +1,12 @@
-<h2>Hola {{name}}</h2>
 <header>
+    <h2>Hola {{name}}</h2>
     <div class="container">
         <h1>Video Llamada</h1>
         <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="#">Inicio</a></li>
+            <li role="presentation" class="active"><a href="/">Inicio</a></li>
             <li role="presentation" ><a href="#">Informacion</a></li>
+            <li role="presentation"><a href="/register.html">Registro</a></li>
+            <li role="presentation"><a href="/adminContacts">Adminstrar Contactos</a></li>
             <!-- <li role="presentation"><a href="#">Messages</a></li> -->
         </ul>
     </div>
@@ -16,16 +18,17 @@
                 Contactos
             </a>
             {{#each contacts}}
-                <a href="{{aux}}{{contact}}" class="list-group-item">{{contact}}</a>
+                <a href="/contactos/{{user}}" class="list-group-item">{{user}}</a>
             {{/each}}
         </div>
         <div class="col-md-5">
-            <h2>Andrés</h2>
-            <h3>{{scontact.contact}}</h3>
+            <h2>{{scontact.name}}</h2>
+            <h3>{{scontact.user}}</h3>
             <h3>Estado: online</h3>
             <div class="btn-group">
+                <a href="/deleteContact/{{name}}/{{scontact.user}}" class="btn btn-danger">Eliminar</a>
                 <button type="button" class="btn btn-success">Llamar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <!-- <button type="button" class="btn btn-danger">Eliminar</button> -->
 
             </div>
         </div>

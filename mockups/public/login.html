@@ -11,8 +11,9 @@
 		<div class="container">
 			<h1>Video Llamada</h1>
 			<ul class="nav nav-pills">
-				<li role="presentation" class="active"><a href="#">Inicio</a></li>
+				<li role="presentation" class="active"><a href="/">Inicio</a></li>
 				<li role="presentation" ><a href="#">Informacion</a></li>
+				<li role="presentation"><a href="/register.html">Registro</a></li>
 				<!-- <li role="presentation"><a href="#">Messages</a></li> -->
 			</ul>
 		</div>
@@ -41,17 +42,17 @@
 			</form>
 		</div>
 	</div> -->
-	<form class="form-horizontal" action="/register" method="POST">
+	<form class="form-horizontal" action="/validation" method="POST">
   <div id="divName" class="form-group">
-    <label class="control-label col-sm-2" for="name">Usuario:</label>
+    <label class="control-label col-sm-2" for="email">Usuario:</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="nameInput" placeholder="Usuario" name="name">
+      <input type="text" class="form-control" id="nameInput" placeholder="Usuario" name="user">
     </div>
   </div>
-  <div id="divPass" class="form-group">
-    <label class="control-label col-sm-2" for="password">Contraseña:</label>
+  <div id="divEmail" class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Contraseña:</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="passwordInput" placeholder="Contraseña" name="password">
+      <input type="text" class="form-control" id="emailInput" placeholder="Contraseña" name="password">
     </div>
   </div>
   <div class="form-group">
@@ -59,7 +60,6 @@
       <button type="submit" class="btn btn-primary">Entrar</button>
     </div>
   </div>
-	</div>
 </form>
 </body>
 </html>

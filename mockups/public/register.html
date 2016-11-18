@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Inicio</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1>Video Llamada</h1>
+			<ul class="nav nav-pills">
+				<li role="presentation" class="active"><a href="/">Inicio</a></li>
+				<li role="presentation" ><a href="#">Informacion</a></li>
+				<li role="presentation"><a href="/register.html">Registro</a></li>
+			</ul>
+		</div>
+	</header>
+	<form class="form-horizontal" action="/registerUser" method="POST">
+		<div id="divName" class="form-group">
+			<label class="control-label col-sm-2" for="email">Nombre:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="nameInput" placeholder="Nombre" name="name">
+			</div>
+		</div>
+		<div id="divUser" class="form-group">
+			<label class="control-label col-sm-2" for="name">Usuario:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="userInput" placeholder="Usuario" name="user">
+			</div>
+		</div>
+		<div id="divPassword" class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Contraseña:</label>
+			<div class="col-sm-4">
+				<input type="password" class="form-control" id="passwordInput" placeholder="Contraseña" name="password">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-4">
+				<button type="submit" class="btn btn-primary">Entrar</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

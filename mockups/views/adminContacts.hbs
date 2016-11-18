@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="list-goup col-md-6">
+            <div class="list-group-item active">
+                {{#each users}}
+                    {{#if isContact}}
+                        <a href="/deleteContact/{{../u}}/{{user}}" class="list-group-item btn-danger">{{user}} C</a>
+                    {{else}}
+                        <a href="/addContact/{{../u}}/{{user}}" class="list-group-item btn-succes">{{user}} I</a>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
