@@ -1,3 +1,5 @@
+var https = require('https');
+var fs = require('fs');
 var express=require('express');
 var path = require('path');
 var bodyParser=require('body-parser');
@@ -24,7 +26,7 @@ app.post("/validation",function(req,res){
                 console.log("OK");
                 req.session.a="OK";
                 req.session.u=req.body.user;
-                res.redirect("http://localhost:"+port+"/contactos");
+                res.redirect("https://localhost:"+port+"/contactos");
             }
             else{
                 console.log("ERROR");
@@ -60,7 +62,7 @@ app.get("/contactos/:contact",function(req,res){
         model.scontact={user :req.params.contact};
         for(var i=0;i<model.contacts.length;i++){
             if(req.params.contact==model.contacts[i].user){
-                model.scontact.name=model.contacts[i].name;
+                model.scontact=model.contacts[i];
                 i=model.contacts.length;
             }
         }
@@ -102,6 +104,12 @@ app.get("/adminContacts",function(req,res){
 
     });
 });
-app.listen(port,function(){
-    console.log("app listening on port "+port);
-})
+// app.listen(port,function(){
+//     console.log("app listening on port "+port);
+// })
+https.createServer({
+      key: fs.readFileSync('./cert/server.key'),
+      cert: fs.readFileSync('./cert/server.crt')
+  }, app).listen(port,function(){
+      console.log("app listening on port "+port);
+  });

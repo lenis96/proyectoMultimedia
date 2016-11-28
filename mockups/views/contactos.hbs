@@ -1,5 +1,5 @@
 <header>
-    <h2>Hola {{name}}</h2>
+    <h2 id="user">{{name}}</h2>
     <div class="container">
         <h1>Video Llamada</h1>
         <ul class="nav nav-pills">
@@ -27,10 +27,38 @@
             <h3>Estado: online</h3>
             <div class="btn-group">
                 <a href="/deleteContact/{{name}}/{{scontact.user}}" class="btn btn-danger">Eliminar</a>
-                <button type="button" class="btn btn-success">Llamar</button>
+                <a type="button" data-user="{{scontact.user}}" id="call" type="button" class="btn btn-success">Llamar</a>
+                <a type="button" data-user="{{scontact.user}}" id="answer" type="button" class="btn btn-success">Responder</a>
                 <!-- <button type="button" class="btn btn-danger">Eliminar</button> -->
 
             </div>
+            <style>
+                #yours {
+                    width: 150px;
+                    height: 150px;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                }
+
+                #theirs {
+                    width: 500px;
+                    height: 500px;
+                }
+            </style>
+            <div id="call-page" class="page">
+                <video id="yours" autoplay></video>
+                <video id="theirs" autoplay></video>
+                <!-- <input type="text" id="their-username" /> -->
+                <!-- <button id="call">Call</button> -->
+                <!-- <button id="hang-up">Hang Up</button> -->
+                <!-- <button id="answer">Answer</button> -->
+                <script>
+                    $("#answer").hide();
+                </script>
+            </div>
+            <script src="https://localhost:8080/client.js"></script>
+            <script src="https://localhost:8080/stream.js"></script>
         </div>
     </div>
 </div>
