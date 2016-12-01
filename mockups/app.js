@@ -7,6 +7,7 @@ var session = require('express-session');
 var db_querys=require('./persistence/querys');
 var aux1=require('./aux1');
 var port=8080;
+var host="192.168.250.245";
 var app=express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -26,7 +27,7 @@ app.post("/validation",function(req,res){
                 console.log("OK");
                 req.session.a="OK";
                 req.session.u=req.body.user;
-                res.redirect("https://localhost:"+port+"/contactos");
+                res.redirect("https://"+host+":"+port+"/contactos");
             }
             else{
                 console.log("ERROR");
@@ -44,32 +45,45 @@ app.post("/registerUser",function(req,res){
     res.render("mensaje",{mensaje:"el usuario ha sido creado"});
 });
 app.get("/contactos",function(req,res){
-    var model={name:req.session.u};
-    db_querys.getContacts(req.session.u,function(rows){
-        model.contacts=rows;
-        console.log(model);
-        model.scontact=model.contacts[0];
-        console.log(model.scontact);
-        res.render("contactos",model);
-    });
+    if(req.session.a=="OK"){
+
+        model={name:req.session.u,host:host};
+        db_querys.getContacts(req.session.u,function(rows){
+            model.contacts=rows;
+            console.log(model);
+            model.scontact=model.contacts[0];
+            console.log(model.scontact);
+            res.render("contactos",model);
+        });
+    }
+    else{
+        res.redirect("https://"+host+":"+port);
+    }
+
 
 });
 app.get("/contactos/:contact",function(req,res){
-    var model={name:req.session.u};
-    db_querys.getContacts(req.session.u,function(rows){
-        model.contacts=rows;
-        console.log(model);
-        model.scontact={user :req.params.contact};
-        for(var i=0;i<model.contacts.length;i++){
-            if(req.params.contact==model.contacts[i].user){
-                model.scontact=model.contacts[i];
-                i=model.contacts.length;
+    if(req.session.a=="OK"){
+        var model={name:req.session.u,host:host};
+        db_querys.getContacts(req.session.u,function(rows){
+            model.contacts=rows;
+            console.log(model);
+            model.scontact={user :req.params.contact};
+            for(var i=0;i<model.contacts.length;i++){
+                if(req.params.contact==model.contacts[i].user){
+                    model.scontact=model.contacts[i];
+                    i=model.contacts.length;
+                }
             }
-        }
-        console.log(model.scontact);
-        //model.aux="";
-        res.render("contactos",model);
-    });
+            console.log(model.scontact);
+            //model.aux="";
+            res.render("contactos",model);
+        });
+    }
+    else{
+        res.redirect("https://"+host+":"+port);
+    }
+
 
 });
 app.get("/deleteContact/:user/:contact",function(req,res){
@@ -85,7 +99,7 @@ app.get("/addContact/:user/:contact",function(req,res){
 app.get("/adminContacts",function(req,res){
     console.log("++++++++++++++++++++++"+req.session.u);
     db_querys.getUsersExep(req.session.u,function(rows){
-        var model={users:rows,u:req.session.u};
+        var model={users:rows,u:req.session.u,host:host};
         db_querys.getContacts(req.session.u,function(rows2){
             var contacts=[];
             for(var i=0;i<rows2.length;i++){

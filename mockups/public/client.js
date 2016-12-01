@@ -11,7 +11,7 @@ var loginPage = document.querySelector('#login-page'),
 
 var name,
     connectedUser;
-var connection = new WebSocket('wss://192.168.0.100:8888');
+var connection = new WebSocket('wss://192.168.250.245:8888');
 
 connection.onopen = function() {
     console.log("Connected");

@@ -4,7 +4,6 @@
         <h1>Video Llamada</h1>
         <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="/">Inicio</a></li>
-            <li role="presentation" ><a href="#">Informacion</a></li>
             <li role="presentation"><a href="/register.html">Registro</a></li>
             <li role="presentation"><a href="/adminContacts">Adminstrar Contactos</a></li>
             <!-- <li role="presentation"><a href="#">Messages</a></li> -->
@@ -27,8 +26,9 @@
             <h3>Estado: online</h3>
             <div class="btn-group">
                 <a href="/deleteContact/{{name}}/{{scontact.user}}" class="btn btn-danger">Eliminar</a>
-                <a type="button" data-user="{{scontact.user}}" id="call" type="button" class="btn btn-success">Llamar</a>
-                <a type="button" data-user="{{scontact.user}}" id="answer" type="button" class="btn btn-success">Responder</a>
+                <a data-user="{{scontact.user}}" id="call" type="button" class="btn btn-success">Llamar</a>
+                <a data-user="{{scontact.user}}" id="answer" type="button" class="btn btn-success">Responder</a>
+                <a type="button" class="btn btn-danger" id="hang-up">Colgar</a>
                 <!-- <button type="button" class="btn btn-danger">Eliminar</button> -->
 
             </div>
@@ -57,8 +57,8 @@
                     $("#answer").hide();
                 </script>
             </div>
-            <script src="https://localhost:8080/client.js"></script>
-            <script src="https://localhost:8080/stream.js"></script>
+            <script src="https://{{host}}:8080/client.js"></script>
+            <script src="https://{{host}}:8080/stream.js"></script>
         </div>
     </div>
 </div>

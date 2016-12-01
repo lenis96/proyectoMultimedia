@@ -1,0 +1,18 @@
+/*Aplicar al cuerpo*/
+body{
+	background-color: #1B1B1B;
+	color: #B1C92B;
+	
+}
+
+h1{
+	color: #B1C92B;
+	text-transform: uppercase;
+	padding-left:15%;
+}
+
+
+div#contenido{
+	padding-left: 25%;
+}
+

@@ -4,17 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Inicio</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div id="contenido">
 	<header>
+		<h1>Videollamada</h1>
 		<div class="container">
-			<h1>Video Llamada</h1>
 			<ul class="nav nav-pills">
-				<li role="presentation" class="active"><a href="/">Inicio</a></li>
-				<li role="presentation" ><a href="#">Informacion</a></li>
-				<li role="presentation"><a href="/register.html">Registro</a></li>
+				<li role="presentation" ><a href="/">Inicio</a></li>
+				<li role="presentation" class="active"><a href="/register.html">Registro</a></li>
 			</ul>
 		</div>
+	<br>	
 	</header>
 	<form class="form-horizontal" action="/registerUser" method="POST">
 		<div id="divName" class="form-group">
@@ -37,9 +39,10 @@
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-4">
-				<button type="submit" class="btn btn-primary">Entrar</button>
+				<button type="submit" class="btn btn-success">Registrar</button>
 			</div>
 		</div>
 	</form>
+</div>
 </body>
 </html>
